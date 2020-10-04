@@ -17,5 +17,3 @@ export const factions = [
   "Nordic",
   "Rusviet",
 ] as const;
-
-export const SCYTHE_BIDDER = "scythe-bidder";
