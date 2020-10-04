@@ -6,7 +6,7 @@ export type Faction = typeof factions[number];
 
 export type Player = {
   id: any;
-  name?: string;
+  name: string;
 };
 
 export type Combination = {
@@ -36,9 +36,3 @@ export interface GameWithMinMaxPlayers extends Game {
   minPlayers: number;
   maxPlayers: number;
 }
-
-export type MatchInfo = {
-  matchId: string;
-  playerId?: string;
-  numPlayers: number;
-};
