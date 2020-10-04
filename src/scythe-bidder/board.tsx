@@ -3,7 +3,7 @@ import TurnOrder from "./turnorder";
 import BidArea from "./bidarea";
 import GameLog from "./gamelog";
 import { Container } from "react-bootstrap";
-import { Combination, GameState, Player } from "./types";
+import { ClientSideBid, Combination, GameState, Player } from "./types";
 import { Ctx } from "boardgame.io";
 import { EventsAPI } from "boardgame.io/dist/types/src/plugins/events/events";
 
@@ -42,17 +42,16 @@ function showGameEndMessage(gameOver?: Array<Combination>) {
 
 const BiddingBoard = (props: {
   G: GameState;
-  playerID: string | null;
+  playerID: string;
   isActive: boolean;
-  moves: Record<string, (...args: any[]) => void>;
+  moves: {
+    bid: ClientSideBid;
+  };
   events: EventsAPI;
   gameMetadata?: Array<Player>;
   ctx: Ctx;
 }) => {
   const { G, playerID, isActive, moves, events, gameMetadata, ctx } = props;
-  if (!playerID) {
-    return null;
-  }
   if (typeof gameMetadata !== "undefined") {
     playerInfo = [...gameMetadata];
   }

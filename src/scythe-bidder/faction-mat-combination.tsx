@@ -1,13 +1,15 @@
 import React from "react";
 import _ from "lodash";
 import { Button, Image } from "react-bootstrap";
-import { Combination, Faction, Mat, Player } from "./types";
+import { ClientSideBid, Combination, Faction, Mat, Player } from "./types";
 import { Ctx } from "boardgame.io";
 import { EventsAPI } from "boardgame.io/dist/types/src/plugins/events/events";
 
 interface Props {
   combination: Combination;
-  moves: Record<string, (...args: any[]) => void>;
+  moves: {
+    bid: ClientSideBid;
+  };
   events: EventsAPI;
   players: Array<Player>;
   ctx: Ctx;
